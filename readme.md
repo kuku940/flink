@@ -10,5 +10,8 @@
     行为类型	     字符串，枚举类型，包括(‘pv’, ‘buy’, ‘cart’, ‘fav’)
     时间戳	     行为发生的时间戳，单位秒
     
+### 基本构成
+    
+    
 ### 教程    
 [Apache Flink 零基础系列教程](https://developer.aliyun.com/article/753999)
