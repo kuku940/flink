@@ -27,9 +27,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * http://wuchong.me/blog/2018/11/07/use-flink-calculate-hot-items/
- */
 public class HotItems {
 
     public static void main(String[] args) throws Exception {
