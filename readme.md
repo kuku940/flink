@@ -1,7 +1,10 @@
 ### 基本构成
 Flink程序的基本构建块是流和转换。  
+
+![flink简要四步骤](./src/main/resources/images/flink简介.png)
+
 一个程序的基本构成：
-- 获取execution environment
+- 获取ExecutionEnvironment
 - 加载/创建原始数据
 - 指定这些数据的转化方法
 - 指定计算结果的存放位置
@@ -9,6 +12,13 @@ Flink程序的基本构建块是流和转换。
 
 ![StreamingDataflow](./src/main/resources/images/StreamingDataflow.jpg)
 ```
+Environment: Flink Job在提交执行计算时，需要首先建立和Flink框架之间的联系，也就指的是当前的flink运行环境，只有获取了环境信息，才能将task调度到不同的taskManager执行。
+    
+    // 批处理环境
+    ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+    // 流式数据处理环境
+    StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
 Source: 数据源，Flink在流处理和批处理上的source大概有4类：
     基于本地集合的 source、
     基于文件的 source、
@@ -210,6 +220,8 @@ addSink
 行为类型	     字符串，枚举类型，包括(‘pv’, ‘buy’, ‘cart’, ‘fav’)
 时间戳	     行为发生的时间戳，单位秒
 ```
+
+https://www.cnblogs.com/javazhiyin/p/13597319.html#top
 
 ### 教程    
 [Apache Flink 零基础系列教程](https://developer.aliyun.com/article/753999)

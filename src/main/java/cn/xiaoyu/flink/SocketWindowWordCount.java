@@ -1,5 +1,6 @@
 package cn.xiaoyu.flink;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -7,12 +8,18 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.util.Collector;
 
-public class SocketWindowWordCount {
+/**
+ * 构建第一个flink应用程序
+ * @link {http://wuchong.me/blog/2018/11/07/5-minutes-build-first-flink-application/}
+ */
 
+@Slf4j
+public class SocketWindowWordCount {
     public static void main(String[] args) throws Exception {
 
-        // 创建 execution environment，设置参数，创建数据源以及提交任务
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        // 创建 execution environment，设置参数，创建数据源以及提交任务
+//        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         // 通过连接 socket 获取输入数据，这里连接到本地9000端口，如果9000端口已被占用，请换一个端口
         DataStream<String> text = env.socketTextStream("localhost", 9000, "\n");
